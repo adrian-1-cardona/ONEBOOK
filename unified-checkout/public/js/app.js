@@ -217,14 +217,29 @@
           ${results.map(r => `
             <div class="item">
               <div style="flex:1">
-                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px">
-                  <div><strong style="font-size:1.05rem">${r.origin}</strong> <span style="color:#94a3b8">→</span> <strong style="font-size:1.05rem">${r.destination}</strong></div>
-                  <span class="price" style="font-size:1.2rem">${formatCurrency(r.price)}</span>
+                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px">
+                  <div><strong style="font-size:1.1rem">${r.origin}</strong> <span style="color:#94a3b8">→</span> <strong style="font-size:1.1rem">${r.destination}</strong></div>
+                  <span class="price" style="font-size:1.25rem">${formatCurrency(r.price)}</span>
                 </div>
-                <div class="muted" style="margin-top:8px">
-                  <div>📅 ${r.date} at ${r.time}</div>
-                  <div>🚂 ${r.operator}</div>
-                  <div>⏱️ Duration: ${formatDuration(r.duration)}</div>
+                <div class="muted" style="margin-bottom:12px">
+                  <div>📅 ${r.date} at ${r.time} | ⏱️ ${formatDuration(r.duration)}</div>
+                </div>
+                
+                <div style="background:#f8fafc; border-left:3px solid #3b82f6; padding:12px 14px; border-radius:6px; margin-bottom:12px">
+                  <div style="font-weight:700; color:#1e293b; margin-bottom:8px">🚆 ${r.operator}</div>
+                  ${r.legs ? `
+                    <div style="font-size:0.9rem">
+                      ${r.legs.map((leg, i) => `
+                        <div style="display:flex; align-items:flex-start; gap:10px; margin-bottom:${i < r.legs.length - 1 ? '10px' : '0'}">
+                          <div style="color:#3b82f6; font-weight:700"></div>
+                          <div>
+                            <div>${leg.from} → ${leg.to}</div>
+                            <div class="muted">${leg.transport} • ${formatDuration(leg.duration)}${leg.stops ? ` • ${leg.stops} stops` : ''}</div>
+                          </div>
+                        </div>
+                      `).join('')}
+                    </div>
+                  ` : ''}
                 </div>
               </div>
               <div class="actions" style="gap:8px; flex-direction:column">
@@ -251,7 +266,7 @@
         const existing = state.cart.find(c => c.route.id === route.id);
         if (existing) existing.qty += pax; else state.cart.push({ route, qty: pax });
         saveCart();
-        btn.textContent = '✓ Added!';
+        btn.textContent = 'Added!';
         btn.disabled = true;
         setTimeout(() => { btn.textContent = 'Add to Cart'; btn.disabled = false; }, 1500);
       });
@@ -390,7 +405,7 @@
 
     appEl.innerHTML = `
       <section class="card">
-        <h2 class="section-title">✓ Order Confirmed</h2>
+        <h2 class="section-title">Order Confirmed</h2>
         <p>Thank you, <strong>${cust.name}</strong>!</p>
         <p class="muted">A confirmation email has been sent to <strong>${cust.email}</strong></p>
         <div style="background:#0f2a1a; padding:16px; border-radius:8px; margin:16px 0; border-left:4px solid #22c55e">

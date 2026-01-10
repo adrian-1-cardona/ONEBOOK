@@ -4,99 +4,160 @@
     "origin": "New York",
     "destination": "Boston",
     "date": "2026-01-15",
-    "time": "09:00",
-    "operator": "ExpressRail",
+    "time": "06:00 PST",
+    "operator": "Amtrak Northeast Regional",
     "duration": 240,
-    "price": 49.99
+    "price": 49.99,
+    "legs": [
+      { "from": "Penn Station, NYC", "to": "South Station, Boston", "transport": "Train", "duration": 240, "stops": 8 }
+    ]
   },
   {
     "id": "R2",
     "origin": "New York",
     "destination": "Washington DC",
     "date": "2026-01-15",
-    "time": "11:00",
-    "operator": "ExpressRail",
+    "time": "08:00 PST",
+    "operator": "Amtrak Northeast Regional",
     "duration": 210,
-    "price": 59.99
+    "price": 59.99,
+    "legs": [
+      { "from": "Penn Station, NYC", "to": "Union Station, DC", "transport": "Train", "duration": 210, "stops": 12 }
+    ]
   },
   {
     "id": "R3",
     "origin": "Philadelphia",
     "destination": "New York",
     "date": "2026-01-15",
-    "time": "08:30",
-    "operator": "Northeast Lines",
+    "time": "05:30 PST",
+    "operator": "SEPTA Regional Rail + Amtrak",
     "duration": 90,
-    "price": 29.5
+    "price": 29.5,
+    "legs": [
+      { "from": "30th Street Station, Philadelphia", "to": "Penn Station, NYC", "transport": "Train", "duration": 90, "stops": 6 }
+    ]
   },
   {
     "id": "R4",
     "origin": "Chicago",
     "destination": "Detroit",
     "date": "2026-01-16",
-    "time": "10:15",
-    "operator": "Midwest Rail",
+    "time": "08:15 PST",
+    "operator": "Amtrak Wolverine",
     "duration": 300,
-    "price": 45.0
+    "price": 45.0,
+    "legs": [
+      { "from": "Union Station, Chicago", "to": "Detroit Central Station", "transport": "Train", "duration": 300, "stops": 10 }
+    ]
   },
   {
     "id": "R5",
     "origin": "San Francisco",
     "destination": "Los Angeles",
     "date": "2026-01-18",
-    "time": "07:45",
-    "operator": "Coastliner",
+    "time": "07:45 PST",
+    "operator": "Amtrak Coast Starlight",
     "duration": 360,
-    "price": 69.0
+    "price": 69.0,
+    "legs": [
+      { "from": "Emeryville Station, SF", "to": "Union Station, LA", "transport": "Train", "duration": 360, "stops": 18 }
+    ]
   },
   {
     "id": "R6",
     "origin": "Los Angeles",
     "destination": "San Diego",
     "date": "2026-01-18",
-    "time": "13:20",
-    "operator": "Coastliner",
+    "time": "13:20 PST",
+    "operator": "Amtrak Pacific Surfliner",
     "duration": 150,
-    "price": 32.0
+    "price": 32.0,
+    "legs": [
+      { "from": "Union Station, LA", "to": "Santa Fe Depot, San Diego", "transport": "Train", "duration": 150, "stops": 12 }
+    ]
   },
   {
     "id": "R7",
     "origin": "Seattle",
     "destination": "Portland",
     "date": "2026-01-19",
-    "time": "12:00",
-    "operator": "Cascade Lines",
+    "time": "12:00 PST",
+    "operator": "Amtrak Cascades",
     "duration": 210,
-    "price": 39.99
+    "price": 39.99,
+    "legs": [
+      { "from": "King Street Station, Seattle", "to": "Union Station, Portland", "transport": "Train", "duration": 210, "stops": 8 }
+    ]
   },
   {
     "id": "R8",
     "origin": "Denver",
     "destination": "Salt Lake City",
     "date": "2026-01-20",
-    "time": "09:10",
-    "operator": "Rocky Mountain Rail",
+    "time": "08:10 PST",
+    "operator": "Amtrak California Zephyr",
     "duration": 420,
-    "price": 79.0
+    "price": 79.0,
+    "legs": [
+      { "from": "Denver Central Station", "to": "Salt Lake City Central", "transport": "Train", "duration": 420, "stops": 15 }
+    ]
   },
   {
     "id": "R9",
     "origin": "Austin",
     "destination": "Dallas",
     "date": "2026-01-21",
-    "time": "14:35",
-    "operator": "Lone Star Line",
+    "time": "12:35 PST",
+    "operator": "Texas Central Express",
     "duration": 200,
-    "price": 34.75
+    "price": 34.75,
+    "legs": [
+      { "from": "Austin Central Station", "to": "Dallas Union Station", "transport": "Train", "duration": 200, "stops": 6 }
+    ]
   },
   {
     "id": "R10",
     "origin": "Boston",
     "destination": "New York",
     "date": "2026-01-22",
-    "time": "16:00",
-    "operator": "ExpressRail",
+    "time": "13:00 PST",
+    "operator": "Amtrak Northeast Regional",
     "duration": 240,
-    "price": 49.99
+    "price": 49.99,
+    "legs": [
+      { "from": "South Station, Boston", "to": "Penn Station, NYC", "transport": "Train", "duration": 240, "stops": 8 }
+    ]
+  },
+  {
+    "id": "R11",
+    "origin": "Los Angeles",
+    "destination": "Detroit",
+    "date": "2026-01-16",
+    "time": "08:00 PST",
+    "operator": "Southwest Airlines + Amtrak",
+    "duration": 1440,
+    "price": 189.99,
+    "legs": [
+      { "from": "LAX Airport", "to": "Detroit Metropolitan Airport", "transport": "Flight (3h 50m)", "duration": 230 },
+      { "from": "Detroit Metropolitan", "to": "Detroit Central Station", "transport": "Shuttle", "duration": 30 },
+      { "from": "Detroit Central Station", "to": "Downtown Detroit", "transport": "Amtrak", "duration": 20, "stops": 0 }
+    ]
+  },
+  {
+    "id": "R12",
+    "origin": "Los Angeles",
+    "destination": "Detroit",
+    "date": "2026-01-17",
+    "time": "19:00 PST",
+    "operator": "Amtrak Sunset Limited to Chicago + Wolverine",
+    "duration": 2160,
+    "price": 145.0,
+    "legs": [
+      { "from": "Union Station, LA", "to": "Union Station, Chicago", "transport": "Train (36h)", "duration": 2160, "stops": 25 },
+      { "from": "Union Station, Chicago", "to": "Detroit Central Station", "transport": "Train (5h)", "duration": 300, "stops": 10 }
+    ]
   }
 ]
+
+
