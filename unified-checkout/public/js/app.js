@@ -222,11 +222,11 @@
                   <span class="price" style="font-size:1.25rem">${formatCurrency(r.price)}</span>
                 </div>
                 <div class="muted" style="margin-bottom:12px">
-                  <div>📅 ${r.date} at ${r.time} | ⏱️ ${formatDuration(r.duration)}</div>
+                  <div>${r.date} at ${r.time} | ${formatDuration(r.duration)}</div>
                 </div>
                 
                 <div style="background:#f8fafc; border-left:3px solid #3b82f6; padding:12px 14px; border-radius:6px; margin-bottom:12px">
-                  <div style="font-weight:700; color:#1e293b; margin-bottom:8px">🚆 ${r.operator}</div>
+                  <div style="font-weight:700; color:#1e293b; margin-bottom:8px">${r.operator}</div>
                   ${r.legs ? `
                     <div style="font-size:0.9rem">
                       ${r.legs.map((leg, i) => `
