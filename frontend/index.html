@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Checkout - Taking you across best places</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: #333;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                        url('images/City Sky lights Wallpaper.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        .hero-content h1 {
+            font-size: 64px;
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 40px;
+            line-height: 1.2;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: #ffd700;
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background-color: #ffed4e;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: #ffd700;
+            color: #000;
+        }
+
+        .btn-secondary:hover {
+            background-color: #ffed4e;
+        }
+
+        /* Problem Section */
+        .problem {
+            background: #17a2b8;
+            color: white;
+        }
+
+        .problem-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .problem-text h2 {
+            font-size: 48px;
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .problem-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .problem-images {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .problem-images img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #87CEEB, #20B2AA);
+        }
+
+        /* Differ Section */
+        .differ {
+            background: #0f5a5a;
+            color: white;
+        }
+
+        .differ-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .differ-text h2 {
+            font-size: 48px;
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .differ-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .differ-images {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .differ-images img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #FFB6C1, #87CEEB);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
+                        url('https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=1200&h=800&fit=crop');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        .cta h2 {
+            font-size: 56px;
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+
+        /* Footer */
+        footer {
+            background: #ffd700;
+            color: #000;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-item h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .footer-item p {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .problem-content,
+            .differ-content,
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            nav a {
+                margin-left: 15px;
+            }
+
+            .problem-text h2,
+            .differ-text h2,
+            .cta h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Taking you across best places</h1>
+            <a href="../unified-checkout/public/index.html" class="btn btn-primary">Book Now</a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem" id="problem">
+        <div class="problem-content">
+            <div class="problem-text">
+                <h2>The Problem?</h2>
+                <p>Traveling through major cities, you have to order and arrange your itinerary through public transportation with multiple different companies.</p>
+                <p>One ticket for Amtrak, Delta, taxi's...</p>
+                <p>Unified Checkout sums that all up into one itinerary From Start to Finish.</p>
+            </div>
+            <div class="problem-images">
+                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop" alt="Travel">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop" alt="Nature">
+            </div>
+        </div>
+    </section>
+
+    <!-- Differ Section -->
+    <section class="differ" id="differ">
+        <div class="differ-content">
+            <div class="differ-text">
+                <h2>How We Differ</h2>
+                <p>All of your itinerary details will be displayed and you will be given checkout through our site below</p>
+                <p>Click <strong>Book Now</strong> to streamline your travel process</p>
+                <a href="../unified-checkout/public/index.html" class="btn btn-secondary">Book Now</a>
+            </div>
+            <div class="differ-images">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=300&fit=crop" alt="Beach 1">
+                <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=300&fit=crop" alt="Beach 2">
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="cta">
+        <div>
+            <h2>Book your next trip with us</h2>
+            <a href="../unified-checkout/public/index.html" class="btn btn-primary">Book Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-item">
+                <h3>Location</h3>
+                <p>800 N Alameda St, Los Angeles, CA 90012</p>
+            </div>
+            <div class="footer-item">
+                <h3>Email</h3>
+                <p>cardona.adrian.1029@gmail.com</p>
+            </div>
+            <div class="footer-item">
+                <h3>Contact Number</h3>
+                <p>(310) 489-6795</p>
+            </div>
+        </div>
+        <p>&copy; 2026 Unified Checkout. All rights reserved.</p>
+    </footer>
+</body>
+</html>
