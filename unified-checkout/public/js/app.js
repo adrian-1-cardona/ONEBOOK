@@ -37,19 +37,15 @@
   function cartCount() { return state.cart.reduce((a,c) => a + c.qty, 0); }
 
   async function loadData() {
-    // Embedded routes data - no server needed
-    state.routes = [
-      { id: "R1", origin: "New York", destination: "Boston", date: "2026-01-15", time: "09:00", operator: "ExpressRail", duration: 240, price: 49.99 },
-      { id: "R2", origin: "New York", destination: "Washington DC", date: "2026-01-15", time: "11:00", operator: "ExpressRail", duration: 210, price: 59.99 },
-      { id: "R3", origin: "Philadelphia", destination: "New York", date: "2026-01-15", time: "08:30", operator: "Northeast Lines", duration: 90, price: 29.5 },
-      { id: "R4", origin: "Chicago", destination: "Detroit", date: "2026-01-16", time: "10:15", operator: "Midwest Rail", duration: 300, price: 45.0 },
-      { id: "R5", origin: "San Francisco", destination: "Los Angeles", date: "2026-01-18", time: "07:45", operator: "Coastliner", duration: 360, price: 69.0 },
-      { id: "R6", origin: "Los Angeles", destination: "San Diego", date: "2026-01-18", time: "13:20", operator: "Coastliner", duration: 150, price: 32.0 },
-      { id: "R7", origin: "Seattle", destination: "Portland", date: "2026-01-19", time: "12:00", operator: "Cascade Lines", duration: 210, price: 39.99 },
-      { id: "R8", origin: "Denver", destination: "Salt Lake City", date: "2026-01-20", time: "09:10", operator: "Rocky Mountain Rail", duration: 420, price: 79.0 },
-      { id: "R9", origin: "Austin", destination: "Dallas", date: "2026-01-21", time: "14:35", operator: "Lone Star Line", duration: 200, price: 34.75 },
-      { id: "R10", origin: "Boston", destination: "New York", date: "2026-01-22", time: "16:00", operator: "ExpressRail", duration: 240, price: 49.99 }
-    ];
+    // Load routes from JSON file
+    try {
+      const response = await fetch('data/routes.json');
+      state.routes = await response.json();
+    } catch (e) {
+      console.error('Failed to load routes:', e);
+      // Fallback to empty routes
+      state.routes = [];
+    }
   }
 
   function navigate(hash) {
