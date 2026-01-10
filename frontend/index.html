@@ -8,54 +8,54 @@
 </head>
 <body>
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="hero fade-in-down" id="home">
         <div class="hero-content">
-            <h1>Taking you across best places</h1>
-            <a href="../unified-checkout/public/index.html" class="btn btn-primary">Book Now</a>
+            <h1 class="fade-in-down">Taking you across best places</h1>
+            <a href="../unified-checkout/public/index.html" class="btn btn-primary fade-in-up">Book Now</a>
         </div>
     </section>
 
     <!-- Problem Section -->
-    <section class="problem" id="problem">
+    <section class="problem fade-in-scroll" id="problem">
         <div class="problem-content">
-            <div class="problem-text">
+            <div class="problem-text fade-in-left">
                 <h2>The Problem?</h2>
                 <p>Traveling through major cities, you have to order and arrange your itinerary through public transportation with multiple different companies.</p>
                 <p>One ticket for Amtrak, Delta, taxi's...</p>
                 <p>Unified Checkout sums that all up into one itinerary From Start to Finish.</p>
             </div>
-            <div class="problem-images">
-                <img src = "images/travel.jpg">
+            <div class="problem-images fade-in-right">
+                <img src="images/travel.jpg" class="fade-in">
             </div>
         </div>
     </section>
 
     <!-- Differ Section -->
-    <section class="differ" id="differ">
+    <section class="differ fade-in-scroll" id="differ">
         <div class="differ-content">
-            <div class="differ-text">
+            <div class="differ-text fade-in-left">
                 <h2>How We Differ</h2>
                 <p>All of your itinerary details will be displayed and you will be given checkout through our site below</p>
                 <p>Click <strong>Book Now</strong> to streamline your travel process</p>
                 <a href="../unified-checkout/public/index.html" class="btn btn-secondary">Book Now</a>
             </div>
-            <div class="differ-images">
-                <img src="images/advent.jpg" >
+            <div class="differ-images fade-in-right">
+                <img src="images/advent.jpg" class="fade-in">
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta" id="cta">
-        <div>
+    <section class="cta fade-in-scroll" id="cta">
+        <div class="fade-in">
             <h2>Book your next trip with us</h2>
             <a href="../unified-checkout/public/index.html" class="btn btn-primary">Book Now</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-content">
+    <footer class="fade-in-scroll" id="contact">
+        <div class="footer-content fade-in">
             <div class="footer-item">
                 <h3>Location</h3>
                 <p>800 N Alameda St, Los Angeles, CA 90012</p>
@@ -71,5 +71,28 @@
         </div>
         <p>&copy; 2026 Unified Checkout. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Intersection Observer for scroll-triggered fade-in
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in-scroll elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-in-scroll');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>
